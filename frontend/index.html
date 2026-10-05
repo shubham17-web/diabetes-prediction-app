@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Diabetes Prediction</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Diabetes Prediction</h1>
+        <p>Enter patient information to estimate diabetes risk</p>
+      </div>
+
+      <form id="predictionForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="Pregnancies">Pregnancies</label>
+            <input type="number" id="Pregnancies" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="Glucose">Glucose</label>
+            <input type="number" id="Glucose" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="BloodPressure">Blood Pressure</label>
+            <input type="number" id="BloodPressure" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="SkinThickness">Skin Thickness</label>
+            <input type="number" id="SkinThickness" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="Insulin">Insulin</label>
+            <input type="number" id="Insulin" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="BMI">BMI</label>
+            <input type="number" step="0.1" id="BMI" min="0" required />
+          </div>
+
+          <div class="field">
+            <label for="DiabetesPedigreeFunction">
+              Diabetes Pedigree Function
+            </label>
+            <input
+              type="number"
+              step="0.001"
+              id="DiabetesPedigreeFunction"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" required />
+          </div>
+        </div>
+
+        <button type="submit" id="predictButton">Predict Diabetes</button>
+
+        <div class="button-group">
+
+          <button
+            type="button"
+            id="clearInputsButton"
+            class="clear-inputs-button"
+          >
+            Clear Inputs
+          </button>
+        </div>
+      </form>
+
+      <div id="result"></div>
+      <section class="history-section">
+        <div class="history-header">
+          <h2>Prediction History</h2>
+
+          <button type="button" id="clearHistoryButton" class="clear-button">
+            Clear History
+          </button>
+        </div>
+
+        <div id="history">Loading history...</div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

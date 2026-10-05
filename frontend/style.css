@@ -1,0 +1,405 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #dfe7ef;
+    color: #243447;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+/* Main Card */
+
+.container {
+    width: 100%;
+    max-width: 760px;
+
+    background: #f7f9fb;
+
+    border: 1px solid #cbd5df;
+    border-radius: 18px;
+
+    padding: 40px;
+
+    box-shadow: 0 12px 35px rgba(36, 52, 71, 0.12);
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header::before {
+    content: "ML";
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 15px;
+
+    border-radius: 14px;
+
+    background: #d7e7f7;
+    color: #2463a6;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 9px;
+    color: #1f3448;
+}
+
+.header p {
+    color: #657789;
+    font-size: 14px;
+}
+
+/* Form */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #40566b;
+}
+
+.field input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #c6d0da;
+    border-radius: 9px;
+
+    background: #edf2f6;
+
+    color: #243447;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.field input:hover {
+    border-color: #9eafbf;
+}
+
+.field input:focus {
+    outline: none;
+
+    background: #f7f9fb;
+
+    border-color: #4d8bc9;
+
+    box-shadow: 0 0 0 3px rgba(77, 139, 201, 0.15);
+}
+
+/* Modern Button */
+
+button {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 14px 20px;
+
+    border: 1px solid #3d7fbd;
+    border-radius: 9px;
+
+    background: #4d8bc9;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow: 0 4px 10px rgba(77, 139, 201, 0.22);
+}
+
+button:hover {
+    background: #3f7eb9;
+    box-shadow: 0 6px 14px rgba(77, 139, 201, 0.28);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Result */
+
+#result {
+    margin-top: 24px;
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px;
+
+    border: 1px solid #cbd5df;
+    border-radius: 9px;
+
+    background: #e8eef4;
+    color: #40566b;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+#result.diabetic {
+    background: #f9e1e1;
+    border-color: #e5b5b5;
+    color: #a33a3a;
+}
+
+#result.non-diabetic {
+    background: #dfeee6;
+    border-color: #b7d8c3;
+    color: #287044;
+}
+
+/* Disclaimer */
+
+.container::after {
+    content: "For educational purposes only. This application is not a medical diagnosis.";
+
+    display: block;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid #d5dde5;
+
+    color: #7b8b9a;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 28px 20px;
+        border-radius: 14px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+/* Prediction History */
+
+.history-section {
+    margin-top: 35px;
+    padding-top: 28px;
+    border-top: 1px solid #d5dde5;
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.history-header h2 {
+    margin: 0;
+
+    color: #1f3448;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.clear-button {
+    width: auto;
+
+    margin: 0;
+
+    padding: 9px 16px;
+
+    border: 1px solid #c4d0dc;
+    border-radius: 8px;
+
+    background: #e8eef4;
+    color: #40566b;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow: none;
+}
+
+.clear-button:hover {
+    background: #dce5ed;
+    color: #243447;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+/* History list */
+
+#history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    color: #657789;
+    font-size: 14px;
+}
+
+/* Individual history card */
+
+.history-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 18px;
+
+    background: #e8eef4;
+
+    border: 1px solid #cbd5df;
+    border-radius: 10px;
+}
+
+.history-card strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #2c4358;
+
+    font-size: 14px;
+}
+
+.history-card p {
+    color: #657789;
+
+    font-size: 13px;
+}
+
+.history-card span {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #d7e7f7;
+    color: #2463a6;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+/* Prediction result */
+
+.history-card span {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #d7e7f7;
+    color: #2463a6;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.history-diabetic {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #f9e1e1;
+    color: #a33a3a;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.history-non-diabetic {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #dfeee6;
+    color: #287044;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Clear Inputs Button */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.button-group #predictButton {
+    width: 100%;
+}
+
+.button-group .clear-inputs-button {
+    width: 180px;
+    margin-top: 0;
+}
