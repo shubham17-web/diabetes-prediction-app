@@ -1,23 +1,64 @@
-# Diabetes Prediction App
+## 🚀 Live Demo
 
-A machine learning web application that predicts diabetes risk using a Support Vector Machine (SVM) model.
+**Frontend:**  
+https://diabetes-prediction-frontend-2cxe.onrender.com/
 
-## Features
+**Backend API:**  
+https://diabetes-prediction-app-khfb.onrender.com/
 
-- Diabetes prediction using machine learning
+**API Documentation:**  
+https://diabetes-prediction-app-khfb.onrender.com/docs
+
+## 🧠 Project Overview
+
+Diabetes Prediction App is an end-to-end machine learning web application that predicts whether a person is likely to be diabetic based on medical input features.
+
+The project combines a trained Machine Learning model with a FastAPI backend, SQLite database, and HTML/CSS/JavaScript frontend.
+
+> **Disclaimer:** This application is for educational purposes only and is not a medical diagnosis system.
+
+## 🛠️ Tech Stack
+
+### Machine Learning
+- Python
+- NumPy
+- Pandas
+- Scikit-learn
+- Support Vector Machine (SVM)
+- StandardScaler
+
+### Backend
+- FastAPI
+- Uvicorn
+- Pydantic
+- SQLAlchemy
+- SQLite
+
+### Frontend
+- HTML
+- CSS
+- JavaScript
+
+### Deployment
+- GitHub
+- Render
+
+## ✨ Features
+
+- Diabetes prediction using an SVM model
+- Feature scaling using StandardScaler
 - FastAPI REST API
-- SQLite database
+- Interactive frontend
 - Prediction history
-- Clear prediction history
-- HTML/CSS/JavaScript frontend
-- Saved ML model and scaler
-- Responsive user interface
+- SQLite database storage
+- Clear Inputs functionality
+- Clear History functionality
+- Swagger API documentation
+- Deployed frontend and backend
 
-## Machine Learning
+## 📊 Input Features
 
-The model was trained using the PIMA Diabetes dataset.
-
-### Features
+The model uses the following features:
 
 - Pregnancies
 - Glucose
@@ -28,9 +69,30 @@ The model was trained using the PIMA Diabetes dataset.
 - Diabetes Pedigree Function
 - Age
 
-### Model
+## 🏗️ Project Structure
 
-Support Vector Machine:
-
-```python
-SVC(kernel="linear")
+```text
+diabetes-prediction-app/
+│
+├── app/
+│   ├── main.py
+│   ├── schemas.py
+│   ├── database.py
+│   └── models.py
+│
+├── data/
+│   └── diabetes.csv
+│
+├── model/
+│   ├── diabetes_model.pkl
+│   └── scaler.pkl
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── Diabetes_Prediction.ipynb
+├── requirements.txt
+├── README.md
+└── .gitignore
