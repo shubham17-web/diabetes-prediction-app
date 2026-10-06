@@ -403,3 +403,30 @@ button:active {
     width: 180px;
     margin-top: 0;
 }
+
+/* Input Unit */
+.input-unit {
+    position: relative;
+}
+
+.input-unit input {
+    padding-right: 75px;
+}
+
+.input-unit span {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718296;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.input-error {
+    display: block;
+    min-height: 16px;
+    margin-top: 5px;
+    color: #b33a3a;
+    font-size: 12px;
+}

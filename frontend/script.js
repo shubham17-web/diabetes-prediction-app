@@ -1,6 +1,113 @@
+const numericFields = [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+];
+
+const decimalFields = ["BMI", "DiabetesPedigreeFunction"];
+
+// Create (or reuse) an error element under each field
+function getErrorElement(id) {
+    let error = document.getElementById(`${id}-error`);
+
+    if (!error) {
+        const input = document.getElementById(id);
+
+        error = document.createElement("div");
+        error.id = `${id}-error`;
+        error.className = "error-message";
+        error.style.fontSize = "12px";
+        error.style.color = "#a33a3a";
+
+        const field = input.closest(".field");
+        (field || input.parentElement).appendChild(error);
+    }
+
+    return error;
+}
+
+function showError(id, message) {
+    getErrorElement(id).textContent = message;
+}
+
+function clearError(id) {
+    getErrorElement(id).textContent = "";
+}
+
+numericFields.forEach((id) => {
+    const input = document.getElementById(id);
+    getErrorElement(id);
+
+    input.addEventListener("keydown", (event) => {
+        const allowedKeys = [
+            "Backspace",
+            "Delete",
+            "Tab",
+            "Enter",
+            "ArrowLeft",
+            "ArrowRight",
+            "ArrowUp",
+            "ArrowDown",
+            "Home",
+            "End"
+        ];
+
+        if (allowedKeys.includes(event.key)) {
+            return;
+        }
+
+        // Allow shortcuts like Ctrl+V, Ctrl+C, Ctrl+A
+        if (event.ctrlKey || event.metaKey) {
+            return;
+        }
+
+        // Allow decimal point only for decimal fields
+        if (event.key === "." && decimalFields.includes(id)) {
+            return;
+        }
+
+        // Allow only numbers
+        if (!/^[0-9]$/.test(event.key)) {
+            event.preventDefault();
+            showError(id, "Invalid input");
+            return;
+        }
+
+        clearError(id);
+    });
+
+    input.addEventListener("paste", (event) => {
+        const pastedText = event.clipboardData.getData("text");
+
+        if (!/^\d*\.?\d*$/.test(pastedText)) {
+            event.preventDefault();
+            showError(id, "Invalid input");
+        }
+    });
+
+    input.addEventListener("input", () => {
+        if (!/^\d*\.?\d*$/.test(input.value)) {
+            showError(id, "Invalid input");
+            input.setCustomValidity("Invalid input");
+        } else {
+            clearError(id);
+            input.setCustomValidity("");
+        }
+    });
+
+    input.addEventListener("blur", () => {
+        clearError(id);
+    });
+});
+
 const clearInputsButton =
     document.getElementById("clearInputsButton");
-    
+
 const predictButton = document.getElementById("predictButton");
 
 const clearHistoryButton =
@@ -182,6 +289,18 @@ clearHistoryButton.addEventListener(
 function clearInputs() {
 
     form.reset();
+
+    // Clear validation error messages and states
+    numericFields.forEach((id) => {
+        const input = document.getElementById(id);
+        const error = document.getElementById(`${id}-error`);
+
+        input.setCustomValidity("");
+
+        if (error) {
+            error.textContent = "";
+        }
+    });
 
     resultDiv.textContent = "";
 

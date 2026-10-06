@@ -1,12 +1,20 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class DiabetesInput(BaseModel):
-    Pregnancies: float
-    Glucose: float
-    BloodPressure: float
-    SkinThickness: float
-    Insulin: float
-    BMI: float
-    DiabetesPedigreeFunction: float
-    Age: float
+
+    Pregnancies: float = Field(ge=0, le=20)
+
+    Glucose: float = Field(ge=40, le=600)
+
+    BloodPressure: float = Field(ge=30, le=200)
+
+    SkinThickness: float = Field(ge=1, le=100)
+
+    Insulin: float = Field(ge=0, le=1000)
+
+    BMI: float = Field(ge=10, le=70)
+
+    DiabetesPedigreeFunction: float = Field(ge=0, le=3)
+
+    Age: float = Field(ge=18, le=100)
